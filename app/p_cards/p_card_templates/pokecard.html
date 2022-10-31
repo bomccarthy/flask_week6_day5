@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-md-center align-items-center">
+        <h5>The Pokemon you chose is...</h5>
+    </div>
+    <div class="container container-style">
+        <div class="row">
+            <div class="col">
+                <div class="card mx-auto card-style">
+                    <div class="card-body text-dark">
+                        <img src="{{ official_artwork }}" class="card mx-auto border-0 backcolor" style="max-width: 90%;" alt="">
+                        <h4 class="card-title text-center">{{ name.title() }}</h4>
+                        <h5 class="card-subtitle mb-2 text-muted text-center">Ability:  {{ ability.title() }}</h5>
+                        <div class="row justify-content-md-center">
+                            <div class="col">
+                                <p class="card-text">
+                                    <li class="col offset-md-2 list-text arrow">HP:  {{ hp }}</li>
+                                    <li class="col offset-md-2 list-text arrow">ATT:  {{ attack }}</li>
+                                    <li class="col offset-md-2 list-text arrow">DEF:  {{ defense }}</li>
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text">
+                                    <li class="col list-text arrow">SP ATT:  {{ special_attack }}</li>
+                                    <li class="col list-text arrow">SP DEF:  {{ special_defense }}</li>
+                                    <li class="col list-text arrow">Speed:  {{ speed }}</li>
+                                </p>
+                            </div>
+                            <h5 class="text-center">Base Experience:  {{ base_experience }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="width: 20rem;">
+        <div class="row">
+            <div class="col text-center">
+                <a href="{{ url_for('p_card.choosePokemon') }}" class="btn btn-success keep-button border border-light" style="width: 5rem;">Keep</a>
+                <!-- {# {{ form.name(value='hidden') }}
+                {{ form.submit(class='btn btn-success keep-button border border-light', value='Keep') }} #} -->
+            </div>
+            <div class="col text-center">
+                <a href="{{ url_for('p_card.choosePokemon') }}" class="btn btn-danger discard-button border border-light" style="width: 5rem;">Discard</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

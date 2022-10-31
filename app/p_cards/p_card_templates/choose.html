@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center align-items-center">
+        <h5>Choose your Pokemon.</h5>
+    </div>
+    
+    <div class="d-flex justify-content-center container">
+        <div class="row">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="col mx-auto w-25">
+                    {{ form.chosen_pokemon(class='form-control', placeholder='Choose Wisely') }}
+                </div>
+                <div class="col mx-auto text-center mt-2 w-25">
+                    {{ form.submit(class='btn btn-primary border border-light') }}
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
